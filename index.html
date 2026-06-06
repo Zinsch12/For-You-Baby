@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link
+href= "https://fonts.googleapis.com/css2?family=Allura&display=swap"
+rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Bouquet For My GF</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Allura',cursive;
+}
+
+body{
+overflow-x:hidden;
+background:#e9f6ff;
+color:#333;
+}
+
+.section{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+position:relative;
+overflow:hidden;
+}
+
+.ocean-bg{
+background:
+linear-gradient(
+180deg,
+#dff8ff,
+#f8f0ff,
+#ffe8f3
+);
+}
+
+.bubble{
+position:absolute;
+bottom:-100px;
+border-radius:50%;
+background:rgba(255,255,255,.05);
+animation:floatBubble linear infinite;
+}
+
+@keyframes floatBubble{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(-120vh);
+}
+}
+
+.flower{
+position:absolute;
+font-size:40px;
+animation:floatFlower 12s infinite ease-in-out;
+}
+
+@keyframes floatFlower{
+0%{transform:translateY(0) rotate(0deg);}
+50%{transform:translateY(-40px) rotate(20deg);}
+100%{transform:translateY(0) rotate(0deg);}
+}
+
+.main-title{
+font-size:2.2rem;
+text-align:center;
+margin-bottom:20px;
+color:#ff6fa9;
+}
+
+.subtitle{
+font-size:1rem;
+text-align:center;
+max-width:500px;
+}
+
+.envelope-wrapper{
+margin-top:20px;
+cursor:pointer;
+}
+
+.envelope{
+width:280px;
+height:180px;
+background:#f9b7cc;
+position:relative;
+border-radius:6px;
+}
+
+.flap{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#f7a5c0;
+clip-path:polygon(0 0,50% 55%,100% 0);
+transform-origin:top;
+transition:1s;
+}
+
+.envelope.open .flap{
+transform:rotateX(180deg);
+}
+
+.letter{
+position:absolute;
+width:90%;
+height:160px;
+left:5%;
+top:10px;
+background:white;
+padding:15px;
+border-radius:8px;
+overflow:auto;
+transform:translateY(40px);
+transition:1s;
+font-size:.9rem;
+}
+
+.envelope.open .letter{
+transform:translateY(-120px);
+}
+
+.music-card{
+margin-top:40px;
+padding:15px;
+background:white;
+border-radius:15px;
+box-shadow:0 0 15px rgba(0,0,0,.1);
+width:320px;
+text-align:center;
+}
+
+.music-btn{
+padding:10px 20px;
+border:none;
+background:#ff7fb5;
+color:white;
+border-radius:30px;
+cursor:pointer;
+margin-top:10px;
+}
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+padding:30px;
+}
+
+.polaroid{
+background:white;
+padding:10px;
+width:180px;
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+transform:rotate(-3deg);
+transition:.4s;
+}
+
+.polaroid:nth-child(even){
+transform:rotate(3deg);
+}
+
+.polaroid:hover{
+transform:scale(1.05);
+}
+
+.polaroid img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.polaroid p{
+text-align:center;
+margin-top:10px;
+}
+
+.footer-message{
+font-size:1.5rem;
+text-align:center;
+max-width:600px;
+padding:20px;
+color:#ff5f99;
+}
+
+.next-btn{
+margin-top:25px;
+padding:12px 25px;
+background:#ff8fc3;
+border:none;
+color:white;
+border-radius:30px;
+cursor:pointer;
+}
+
+.fade{
+opacity:0;
+transform:translateY(30px);
+transition:1s;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<section class="section ocean-bg">
+
+<div class="flower" style="top:10%;left:10%">
+     <img src="images/flower1.png"
+     style="width: 100px;height: 100">
+</div>
+<div class="flower" style="top:15%;right:10%">
+     <img src="images/flower2.png"
+     style="width: 100px;height: 100">
+</div>
+<div class="flower" style="bottom:5%;left:10%">
+     <img src="images/flower3.png"
+     style="width: 100px;height: 100">
+</div>
+<div class="flower" style="bottom:10%;right:16%">
+     <img src="images/flower4.png"
+     style="width: 100px;height: 100">
+</div>
+
+<h1 class="main-title fade">
+A Bouquet For My Beautiful Girlfriend Ratna
+</h1>
+
+<p class="subtitle fade">
+Every flower carries a little piece of my heart.
+</p>
+
+<button class="next-btn" onclick="scrollToSection('letterSection')">
+Open My Lovely Letter 💌
+</button>
+
+</section>
+
+<section class="section ocean-bg" id="letterSection">
+
+<h2 class="main-title">
+A Letter For You
+</h2>
+
+<div class="envelope-wrapper">
+<div class="envelope" id="envelope">
+
+<div class="flap"></div>
+
+<div class="letter">
+Terima kasih sudah bersamaku selama ini, disisiku, dan menjadi bagian dari hidupku. Aku sangat menghargai setiap momen yang kita lalui bersama, baik suka maupun duka. Kamu adalah sumber kebahagiaanku, dan aku berjanji akan selalu ada untukmu, mendukungmu, dan mencintaimu dengan sepenuh hati. Aku berharap kita bisa terus tumbuh bersama, menghadapi segala tantangan, dan merayakan setiap keberhasilan bersama. Aku mencintaimu lebih dari kata-kata yang bisa ku ungkapkan. I will always love you forever, until the end of our life.
+</div>
+
+</div>
+</div>
+
+<p style="margin-top:30px">
+Tap the envelope to open it
+</p>
+
+<button class="next-btn" onclick="scrollToSection('musicSection')">
+Next 🎵
+</button>
+
+</section>
+
+<section class="section ocean-bg" id="musicSection">
+
+<h2 class="main-title">
+Our Song
+</h2>
+
+<div class="music-card">
+
+<h3>Special Song</h3>
+
+<p>
+Click play to listen
+</p>
+
+<button class="music-btn" onclick="toggleMusic()">
+Play / Pause
+</button>
+
+<br><br>
+
+<a href="https://open.spotify.com/track/1bYRmNYrXbzbLq1CEBZHRe?si=bQwBrCWNRZq86JDAsXCanw" target="_blank">
+Open Spotify
+</a>
+
+</div>
+
+<audio id="music">
+<source src="inidia.mp3">
+</audio>
+
+<button class="next-btn" onclick="scrollToSection('gallerySection')">
+Our Memory Photos 📷
+</button>
+
+</section>
+
+<section class="section ocean-bg" id="gallerySection">
+
+<h2 class="main-title">
+Our Memories
+</h2>
+
+<div class="gallery">
+
+<div class="polaroid">
+<img src="images/photo1.jpeg">
+<p>Memory #1</p>
+</div>
+
+<div class="polaroid">
+<img src="images/photo2.jpg">
+<p>Memory #2</p>
+</div>
+
+<div class="polaroid">
+<img src="images/photo3.jpg">
+<p>Memory #3</p>
+</div>
+
+<div class="polaroid">
+<img src="images/photo4.jpg">
+<p>Memory #4</p>
+</div>
+
+<div class="polaroid">
+<img src="images/photo6.jpg">
+<p>Memory #5</p>
+</div>
+
+<div class="polaroid">
+<img src="images/photo7.jpg">
+<p>Memory #6</p>
+</div>
+
+</div>
+
+<button class="next-btn" onclick="scrollToSection('endSection')">
+Final Message ❤️
+</button>
+
+</section>
+
+<section class="section ocean-bg" id="endSection">
+
+<div class="footer-message">
+Thank you for being part of my story, Ratna.
+No matter the distance, you'll always have a place in my heart.
+❤️
+</div>
+
+</section>
+
+<script>
+
+for(let i=0;i<25;i++){
+
+const bubble=document.createElement("div");
+
+bubble.classList.add("bubble");
+
+const size=Math.random()*60+20;
+
+bubble.style.width=size+"px";
+bubble.style.height=size+"px";
+
+bubble.style.left=Math.random()*100+"%";
+
+bubble.style.animationDuration=
+(Math.random()*10+8)+"s";
+
+document.body.appendChild(bubble);
+
+}
+
+document.getElementById("envelope")
+.addEventListener("click",function(){
+this.classList.toggle("open");
+});
+
+function toggleMusic(){
+const music=document.getElementById("music");
+
+if(music.paused){
+music.play();
+}else{
+music.pause();
+}
+}
+
+function scrollToSection(id){
+document.getElementById(id)
+.scrollIntoView({
+behavior:"smooth"
+});
+}
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+document.querySelectorAll(".fade")
+.forEach(el=>observer.observe(el));
+
+</script>
+
+</body>
+</html>
